@@ -32,7 +32,7 @@ app.delete('/alunos', (req,res)=> {
     const deleteMatricula = req.body.matricula
     const usuariod = usuarios.findIndex(aluno => aluno.matricula==deleteMatricula)
     res.status(200).json(usuarios[usuariod].nome)
-    usuarios.splice(InputDeviceInfo, usuariod)
+    usuarios.splice(usuariod)
 
 })
     
