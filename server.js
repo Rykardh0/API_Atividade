@@ -31,20 +31,30 @@ app.get('/alunos',(req, res)=> {
 app.delete('/alunos', (req,res)=> {
     const deleteMatricula = req.body.matricula
     const usuariod = usuarios.findIndex(aluno => aluno.matricula==deleteMatricula)
-    res.status(200).json(usuarios[usuariod].nome)
-    usuarios.splice(usuariod)
+    let novoUsuarios = usuarios
+    if(usuariod != -1){
+        usuarios.splice(usuariod, 1)
+    }
+    
+    res.status(200).json(usuarios)
 
 })
     
+app.put('/alunos',(req,res)=>{
+    const atualizaMatricula = req.body.matricula
+    const usuarioAt = usuarios.findIndex(aluno => aluno.matricula==atualizaMatricula)
+    
+    if(usuarioAt != -1){
+      usuarios[usuarioAt].nome = req.body.nome
+      usuarios[usuarioAt].nomeDaMae = req.body.nomeDaMae
+      usuarios[usuarioAt].Sexo = req.body.Sexo
+      usuarios[usuarioAt].Turno = req.body.Turno
+    }
+  
+    res.status(200).json(usuarios)
 
+})
 
 
 
 app.listen(3000)
-
-
-
-/*
-app.put('/alunos')
-
-*/
