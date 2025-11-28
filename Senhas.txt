@@ -1,0 +1,7 @@
+User: hssricardo_db_user
+Passw: sSA4TCdLQ3STntsv
+
+MongoDeployment: mongodb+srv://hssricardo_db_user:sSA4TCdLQ3STntsv@ricardodb.ry9jsu4.mongodb.net/?appName=RicardoDB
+
+Comando Push mudanças para DataBase: npx prisma db push
+
